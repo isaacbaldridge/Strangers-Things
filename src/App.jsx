@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar"
 import Home from "./components/Home"
 import Profile from "./components/Profile"
 import LogIn from "./components/LogIn"
-import SignUp from "./components/SignUp"
+import Register from "./components/Register"
 import Posts from "./components/Posts"
 import './App.css'
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/login" element={<LogIn/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path="/posts" element={<Posts/>}/>
 
       </Routes>

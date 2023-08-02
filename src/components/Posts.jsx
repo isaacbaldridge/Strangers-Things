@@ -8,7 +8,6 @@ const Posts = () => {
     useEffect(() => {
         const getFetchPosts = async() => {
             setAllPosts(await fetchPosts())
-
         }
         getFetchPosts()
     }, [])
