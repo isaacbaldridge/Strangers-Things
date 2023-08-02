@@ -1,16 +1,21 @@
+import Authenticate from "./Authenticate"
 import { useState, useEffect } from "react"
 import {registerUser} from "../apiRequests"
 
 
 
-const Register = () => {
+const Register = ({token, setToken}) => {
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ confirmPassword, setConfirmPassword ] = useState("")
 
     async function handleSubmit(e) {
         e.preventDefault()
-        await registerUser(username, password, confirmPassword)
+        const data = await registerUser(username, password, confirmPassword)
+        console.log(data)
+        console.log(data.data.token)
+        setToken(data.data.token)
+        return token
         }
 
 
@@ -32,6 +37,12 @@ const Register = () => {
                 </label>
                 <button type="submit">Register</button>
             </form>
+
+            {token && (
+                <div>
+                    <Authenticate/>
+                </div>
+            )}
         </div>
     )
 }

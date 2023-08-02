@@ -11,6 +11,8 @@ import './App.css'
 
 
 function App() {
+
+  const [ token, setToken ] = useState(null)
   
   return (
     <div>
@@ -19,9 +21,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/login" element={<LogIn/>}/>
-        <Route path="/register" element={<Register/>}/>
+        <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
         <Route path="/posts" element={<Posts/>}/>
-
       </Routes>
 
     </div>
