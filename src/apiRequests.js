@@ -44,3 +44,20 @@ export async function registerUser (username, password, confirmPassword)  {
       console.error(err);
     }
   }
+
+  export async function myData (token) {
+    try {
+        const response = await fetch(`${BASE_URL}/users/me`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+        const result = await response.json();
+        console.log(result);
+        return result
+        
+      } catch (err) {
+        console.error(err);
+      }
+    }

@@ -1,8 +1,21 @@
+import {myData} from "../apiRequests"
+
+const Authenticate = ({username, password, token}) => {
 
 
-const Authenticate = () => {
+    async function handleAuthenticate() {
+        const data = await myData(token.token)
+        console.log(data)
+        // useNavigate to navigate to /profile
+    }
+
     return (
-        <h1>Dummy Authenticate Component</h1>
+        <div>
+            <p>Please confirm that your information is correct to continue to profile.</p>
+            <p>Username: {username}</p>
+            <p>Password: {password}</p>
+            <button onClick={handleAuthenticate}>Confirm</button>
+        </div>
     )
 }
 

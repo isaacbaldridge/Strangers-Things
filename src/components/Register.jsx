@@ -14,7 +14,7 @@ const Register = ({token, setToken}) => {
         const data = await registerUser(username, password, confirmPassword)
         console.log(data)
         console.log(data.data.token)
-        setToken(data.data.token)
+        setToken(data.data)
         return token
         }
 
@@ -40,7 +40,7 @@ const Register = ({token, setToken}) => {
 
             {token && (
                 <div>
-                    <Authenticate/>
+                    <Authenticate username={username} password={password}token={token} />
                 </div>
             )}
         </div>
