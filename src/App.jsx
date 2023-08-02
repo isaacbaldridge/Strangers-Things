@@ -9,8 +9,9 @@ import SignUp from "./components/SignUp"
 import Posts from "./components/Posts"
 import './App.css'
 
-function App() {
 
+function App() {
+  
   return (
     <div>
       <NavBar/>
