@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/profile" element={<Profile />}/>
-        <Route path="/login" element={<LogIn/>}/>
+        <Route path="/login" element={<LogIn token={token} setToken={setToken}/>}/>
         <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
         <Route path="/posts" element={<Posts/>}/>
       </Routes>

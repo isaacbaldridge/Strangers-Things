@@ -1,12 +1,15 @@
 import {myData} from "../apiRequests"
+import { useNavigate } from "react-router-dom"
 
 const Authenticate = ({username, password, token}) => {
+
+    const navigate = useNavigate()
 
 
     async function handleAuthenticate() {
         const data = await myData(token.token)
         console.log(data)
-        // useNavigate to navigate to /profile
+        navigate("/profile")
     }
 
     return (
