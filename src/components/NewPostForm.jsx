@@ -1,6 +1,3 @@
-// import state for the five input fields and set them up to update along with the value of the input box
-// follow login form format for help
-// call the makePost async function and pass token and the five values over to it so it can populate the request in apiRequests.js
 // if user somehow gets to this page and they are not logged in, provide link to sign-up or login page. (do ternary to conditionally render between that and the actual form)
 
 import {useState} from "react"
