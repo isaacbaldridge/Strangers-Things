@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Route, Routes} from "react-router-dom"
+import {Route, Routes, useNavigate } from "react-router-dom"
 
 import NavBar from "./components/NavBar"
 import Home from "./components/Home"
@@ -13,15 +13,16 @@ import './App.css'
 function App() {
 
   const [ token, setToken ] = useState(null)
+  const navigate = useNavigate()
   
   return (
     <div>
-      <NavBar/>
+      <NavBar token={token} setToken={setToken}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/profile" element={<Profile />}/>
-        <Route path="/login" element={<LogIn token={token} setToken={setToken}/>}/>
-        <Route path="/register" element={<Register token={token} setToken={setToken}/>}/>
+        <Route path="/login" element={<LogIn token={token} setToken={setToken} navigate={navigate}/>}/>
+        <Route path="/register" element={<Register token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/posts" element={<Posts/>}/>
       </Routes>
 

@@ -1,14 +1,14 @@
 import Authenticate from "./Authenticate"
 import {loginUser, myData} from "../apiRequests"
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 
-const LogIn = ({token, setToken}) => {
+const LogIn = ({token, setToken, navigate}) => {
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -40,27 +40,3 @@ const LogIn = ({token, setToken}) => {
 }
 
 export default LogIn
-
-
-
-
-const Register = ({token, setToken}) => {
-    const [ confirmPassword, setConfirmPassword ] = useState("")
-
-
-
-    // console.log(username)
-    // console.log(password)
-    // console.log(confirmPassword)
-
-    return (
-        <div>
-
-            {token && (
-                <div>
-                    <Authenticate username={username} password={password}token={token} />
-                </div>
-            )}
-        </div>
-    )
-}
