@@ -1,8 +1,20 @@
+import { useEffect } from "react"
+import { isLoggedIn } from "../apiRequests"
 
+const Profile = ({token}) => {
 
-const Profile = () => {
+    useEffect(() => {
+        const getIsLoggedIn = async () => {
+            const data = await isLoggedIn(token)
+            console.log(data)
+        }
+        getIsLoggedIn()
+    }, [])
+    
     return (
-        <div>Dummy Profile Component</div>
+        <div>Dummy Profile Component
+            {token && (<p>token text</p>)}
+        </div>
     )
 }
 

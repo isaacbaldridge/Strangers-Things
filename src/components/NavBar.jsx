@@ -9,13 +9,16 @@ const NavBar = ({token, setToken}) => {
     return (
         <div>
             <Link to="/">Home</Link>
-            <Link to="/profile">Profile</Link>
             <Link to="/posts">Posts</Link>
             
             {token && (
-                <Link onClick={() => {
-                    setToken(null)
-                }} to="/login">Log out</Link>
+                <div>
+                    <Link to="/profile">Profile</Link>
+                    
+                    <Link onClick={() => {
+                        setToken(null)
+                    }} to="/login">Log out</Link>
+                </div>
             )}
 
             {!token && (

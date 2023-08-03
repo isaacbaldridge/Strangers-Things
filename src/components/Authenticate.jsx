@@ -7,7 +7,7 @@ const Authenticate = ({username, password, token}) => {
 
 
     async function handleAuthenticate() {
-        const data = await myData(token.token)
+        const data = await myData(token)
         console.log(data)
         navigate("/profile")
     }

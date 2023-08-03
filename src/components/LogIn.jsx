@@ -1,21 +1,19 @@
 import Authenticate from "./Authenticate"
 import {loginUser, myData} from "../apiRequests"
 import { useState, useEffect } from "react"
-// import { useNavigate } from "react-router-dom"
 
 
 const LogIn = ({token, setToken, navigate}) => {
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    // const navigate = useNavigate()
-
     async function handleSubmit(e) {
         e.preventDefault()
         const data = await loginUser(username, password)
         console.log(data)
         console.log(data.data.token)
-        setToken(data.data)
+        setToken(data.data.token)
+        
         // token ? return 
         return navigate("/profile")
     }

@@ -25,7 +25,7 @@ const Register = ({token, setToken}) => {
         const data = await registerUser(username, password, confirmPassword)
         console.log(data)
         console.log(data.data.token)
-        setToken(data.data)
+        setToken(data.data.token)
         return token
         }
 
