@@ -13,7 +13,7 @@ const Profile = ({token}) => {
     
     return (
         <div>Dummy Profile Component
-            {token && (<p>token text</p>)}
+            {token ? <p>you are logged in</p> : <p>you are NOT logged in</p>}
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { fetchPosts } from "../apiRequests"
 
-const Posts = () => {
+const Posts = ({token, navigate}) => {
 
     const [allPosts, setAllPosts] = useState([])
 
@@ -23,7 +23,18 @@ const Posts = () => {
 
 
     return (
-        <div>{postsMap}</div>
+        <div>
+            {token
+            ?
+            <div>
+                <p>you are logged in!</p>
+                <button onClick={() => navigate("/createpost")}>New Post</button>
+
+            </div>
+            :
+            <p>you are NOT logged in. get a job!</p>}
+
+            {postsMap}</div>
     )
 }
 

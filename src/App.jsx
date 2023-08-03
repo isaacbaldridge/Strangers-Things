@@ -7,6 +7,7 @@ import Profile from "./components/Profile"
 import LogIn from "./components/LogIn"
 import Register from "./components/Register"
 import Posts from "./components/Posts"
+import NewPostForm from './components/NewPostForm'
 import './App.css'
 
 
@@ -21,11 +22,12 @@ function App() {
     <div>
       <NavBar token={token} setToken={setToken}/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home token={token}/>}/>
         <Route path="/profile" element={<Profile token={token}/>}/>
         <Route path="/login" element={<LogIn token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/register" element={<Register token={token} setToken={setToken} navigate={navigate}/>}/>
-        <Route path="/posts" element={<Posts/>}/>
+        <Route path="/posts" element={<Posts token={token} navigate={navigate}/>}/>
+        <Route path="/createpost" element={<NewPostForm/>}/>
       </Routes>
 
     </div>
