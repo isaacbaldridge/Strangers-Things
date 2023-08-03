@@ -107,7 +107,7 @@ export async function isLoggedIn (token) {
     }
 }
 
-export async function makePost (token) {
+export async function makePost (token, title, description, price, location, deliver) {
     try {
         const response = await fetch(`${BASE_URL}/posts`, {
           method: "POST",
@@ -117,10 +117,11 @@ export async function makePost (token) {
           },
           body: JSON.stringify({
             post: {
-              title: "My favorite stuffed animal",
-              description: "This is a pooh doll from 1973. It has been carefully taken care of since I first got it.",
-              price: "$480.00",
-              willDeliver: true
+              title: title,
+              description: description,
+              price: `$${price}`,
+              location: location,
+              willDeliver: deliver
             }
           })
         });
