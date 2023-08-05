@@ -1,3 +1,6 @@
+// add function to back button
+
+
 import { messagePost } from "../apiRequests"
 import { useState } from "react"
 import {useParams} from "react-router-dom"
@@ -35,11 +38,11 @@ const SinglePost = ({allPosts, token}) => {
                 onChange={(e) => setMessage(e.target.value)}></textarea>
 
                 <button type="submit">Send message</button>
-
             </form>
             :
             <>maybe you can display all messages for your own post down here</>
             }
+            <button>Back</button>
             single post: {id}
         </div>
     )

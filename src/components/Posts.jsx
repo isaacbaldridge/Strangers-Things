@@ -48,13 +48,8 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
             /*call a delete request funciton */
         }
     }>Delete</button>
-
     :
-
-    <form onSubmit={() => {handleSubmit}}>
-        <input type="text" onClick={()=>{setPostId(post._id)}} value={message} onChange={(e) => setMessage(e.target.value)}></input>
-        <button type="submit">Message</button>
-    </form>
+    <button onClick={() => {navigate(`/posts/${post._id}`)}}>Message</button>
     }
     </div>)
 
