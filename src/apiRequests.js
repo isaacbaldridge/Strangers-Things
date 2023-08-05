@@ -38,39 +38,6 @@ export async function fetchTokenPosts (token) {
     }
 }
 
-// export async function fetchSinglePost() {
-//   try {
-//     const response = await fetch(`${BASE_URL}/posts/:postId`)
-
-//     const result = await response.json()
-//     console.log(result.data.posts)
-//     const postsArr = result.data.posts
-//     return postsArr
-
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
-
-// export async function fetchTokenSinglePost (token) {
-//     try {
-//     const response = await fetch(`${BASE_URL}/posts`, {
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${token}`
-//       }
-//     })
-
-//     const result = await response.json()
-//     console.log(result.data.posts)
-//     const postsArr = result.data.posts
-//     return postsArr
-
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
-
 export async function registerUser (username, password, confirmPassword)  {
     try {
       const response = await fetch(

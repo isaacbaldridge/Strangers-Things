@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import { fetchPosts, fetchTokenPosts, messagePost } from "../apiRequests"
 
-const Posts = ({token, navigate}) => {
+const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
-    const [allPosts, setAllPosts] = useState([])
     const [message, setMessage] = useState("")
     const [postId, setPostId] = useState("")
 
@@ -28,7 +27,7 @@ const Posts = ({token, navigate}) => {
         console.log(newMessageData)
     }
 
-    console.log(allPosts)
+    // console.log(allPosts)
 
 
 
@@ -40,7 +39,7 @@ const Posts = ({token, navigate}) => {
     
     const tokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
-        <h3>{post.author.username}, {post.location}</h3>
+        <h3>{post.author.username} | {post.location}</h3>
         <p>{post.description}</p>
         {post.isAuthor
         ?
@@ -57,13 +56,10 @@ const Posts = ({token, navigate}) => {
         <button type="submit">Message</button>
     </form>
     }
-
-    {/* display messages underneath each post when you are able to post messages */}
     </div>)
 
-    console.log(message)
-    console.log(postId)
-    console.log(tokenPostsMap)
+    // console.log(message)
+    // console.log(postId)
     
 
 
