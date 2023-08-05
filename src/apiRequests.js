@@ -38,7 +38,38 @@ export async function fetchTokenPosts (token) {
     }
 }
 
+// export async function fetchSinglePost() {
+//   try {
+//     const response = await fetch(`${BASE_URL}/posts/:postId`)
 
+//     const result = await response.json()
+//     console.log(result.data.posts)
+//     const postsArr = result.data.posts
+//     return postsArr
+
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
+
+// export async function fetchTokenSinglePost (token) {
+//     try {
+//     const response = await fetch(`${BASE_URL}/posts`, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`
+//       }
+//     })
+
+//     const result = await response.json()
+//     console.log(result.data.posts)
+//     const postsArr = result.data.posts
+//     return postsArr
+
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
 
 export async function registerUser (username, password, confirmPassword)  {
     try {
@@ -151,4 +182,26 @@ export async function makePost (token, title, description, price, location, deli
       } catch (err) {
         console.error(err);
       }
+}
+
+export async function messagePost (token, message, postId) {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${postId}/messages`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        message: {
+          content: message
+        }
+      })
+    });
+    const result = await response.json();
+    console.log(result);
+    return result
+  } catch (err) {
+    console.error(err);
+  }
 }
