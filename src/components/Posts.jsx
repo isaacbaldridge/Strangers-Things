@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
-import { fetchPosts, fetchTokenPosts, messagePost } from "../apiRequests"
+import { deletePost, fetchPosts, fetchTokenPosts } from "../apiRequests"
 
 const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
-    const [message, setMessage] = useState("")
     const [postId, setPostId] = useState("")
 
     useEffect(() => {
@@ -21,21 +20,21 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         }
     }, [])
 
-    const handleSubmit = async (e) => {
+    const deleteHandler = async (e) => {
         e.preventDefault()
-        const newMessageData = await messagePost(token, message, postId)
-        console.log(newMessageData)
+        const deleteData = (await deletePost(token, postId))
+        console.log("testing")
+        console.log(deleteData)
+        setAllPosts(await fetchTokenPosts(token))
+
+
     }
-
-    // console.log(allPosts)
-
-
-
     const noTokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
     </div>)
+
     
     const tokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
@@ -43,18 +42,19 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         <p>{post.description}</p>
         {post.isAuthor
         ?
-        <button
-        onClick={() => {
-            /*call a delete request funciton */
-        }
-    }>Delete</button>
+        <form onSubmit={deleteHandler}>
+            <button
+            onMouseEnter={() => setPostId(post._id)}
+            onMouseLeave={() => setPostId("")}
+            onClick={() => {deleteHandler}}>Delete</button>
+
+        </form>
     :
     <button onClick={() => {navigate(`/posts/${post._id}`)}}>Message</button>
     }
     </div>)
 
-    // console.log(message)
-    // console.log(postId)
+    console.log(postId)
     
 
 
