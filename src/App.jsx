@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<LogIn token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/register" element={<Register token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/posts" element={<Posts token={token} navigate={navigate}/>}/>
-        <Route path="/createpost" element={<NewPostForm token={token}/>}/>
+        <Route path="/createpost" element={<NewPostForm token={token} navigate={navigate}/>}/>
       </Routes>
 
     </div>

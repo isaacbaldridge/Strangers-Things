@@ -2,8 +2,9 @@
 
 import {useState} from "react"
 import { makePost } from "../apiRequests"
+// import { Navigate } from "react-router-dom"
 
-const NewPostForm = ({token}) => {
+const NewPostForm = ({token, navigate}) => {
     const [ title, setTitle ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ price, setPrice ] = useState(0)
@@ -22,7 +23,9 @@ const NewPostForm = ({token}) => {
     // console.log(price)
     // console.log(location)
     // console.log(deliver)
-    return(
+    return (
+        <div>
+            {token ? (
         <div>
             <form onSubmit={handleSubmit}>
                 <label>Title
@@ -42,6 +45,13 @@ const NewPostForm = ({token}) => {
                 </label>
                 <button type="submit">Post</button>
             </form>
+        </div>
+            )
+        :
+        <div>
+            To create a new post, you must either <a href="http://localhost:5173/login">log in</a> or <a href="http://localhost:5173/register">register</a>.
+        </div>
+        }
         </div>
     )
 }

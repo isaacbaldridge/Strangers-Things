@@ -19,6 +19,26 @@ export async function fetchPosts() {
     }
 }
 
+export async function fetchTokenPosts (token) {
+      try {
+      const response = await fetch(`${BASE_URL}/posts`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+  
+      const result = await response.json()
+      console.log(result.data.posts)
+      const postsArr = result.data.posts
+      return postsArr
+
+    } catch (err) {
+      console.error(err)
+    }
+}
+
+
 
 export async function registerUser (username, password, confirmPassword)  {
     try {
