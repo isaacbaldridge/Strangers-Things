@@ -15,7 +15,7 @@ const LogIn = ({token, setToken, navigate}) => {
         setToken(data.data.token)
         
         // token ? return 
-        return navigate("/profile")
+        return navigate("/")
     }
 
 

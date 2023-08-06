@@ -49,11 +49,32 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     const postsToDisplay = searchTerm.length ? filteredPosts : allPosts
     console.log(postsToDisplay)
 
-    const postsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
+    const noTokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
+        <h2>{post.title} | {post.price}</h2>
+        <h3>{post.author.username}, {post.location}</h3>
+        <p>{post.description}</p>
+        </div>)
+
+
+    const tokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
                 <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
+        {token && post.isAuthor
+        ?
+        <form onSubmit={deleteHandler}>
+            <button
+            onMouseEnter={() => setPostId(post._id)}
+            onMouseLeave={() => setPostId("")}
+            onClick={() => {deleteHandler}}>Delete</button>
+
+        </form>
+    :
+    <button onClick={() => {navigate(`/posts/${post._id}`)}}>Message</button>
+    }
     </div>)
+
+
 
     const noTokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2>{post.title} | {post.price}</h2>
@@ -93,9 +114,9 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
             <div>
                 <p>you are logged in!</p>
                 <button onClick={() => navigate("/createpost")}>New Post</button>
-                {postsToDisplayMap
+                {searchTerm.length
                 ?
-                postsToDisplayMap
+                tokenPostsToDisplayMap
                 :
                 tokenPostsMap
                 }
@@ -103,9 +124,9 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
             :
             <div>
                 <p>you are NOT logged in. get a job!</p>
-                {postsToDisplayMap
+                {searchTerm.length
                 ?
-                postsToDisplayMap
+                noTokenPostsToDisplayMap
                 :
                 noTokenPostsMap
                 }
