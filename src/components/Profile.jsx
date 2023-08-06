@@ -1,8 +1,6 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Profile = ({token, navigate, user, setUser}) => {
-
-console.log(user)
 
 if (token && user.posts) {
     const myPosts = user.posts

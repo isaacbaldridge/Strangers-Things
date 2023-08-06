@@ -1,14 +1,12 @@
-// add function to back button
-
-
 import { messagePost } from "../apiRequests"
 import { useState } from "react"
 import {useParams} from "react-router-dom"
 
 const SinglePost = ({allPosts, token, navigate}) => {
-    const [message, setMessage] = useState("")
 
+    const [message, setMessage] = useState("")
     const {id} = useParams()
+    
     const singlePost = allPosts.find((post) => post._id === id)
 
     const handleSubmit = async (e) => {
@@ -17,10 +15,6 @@ const SinglePost = ({allPosts, token, navigate}) => {
         console.log(newMessageData)
         setMessage("")
     }
-
-    console.log(singlePost.isAuthor)
-    console.log(message)
-    console.log(singlePost.messages)
 
     return (
         <div>
@@ -58,10 +52,8 @@ const SinglePost = ({allPosts, token, navigate}) => {
             </div>
             }
             <button onClick={()=> {navigate("/posts")}}>Back</button>
-            single post: {id}
         </div>
     )
-
 }
 
 export default SinglePost

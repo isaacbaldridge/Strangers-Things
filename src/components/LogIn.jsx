@@ -1,7 +1,6 @@
 import {loginUser} from "../apiRequests"
 import { useState } from "react"
 
-
 const LogIn = ({token, setToken, navigate}) => {
     const [ username, setUsername ] = useState("")
     const [ password, setPassword ] = useState("")
@@ -12,11 +11,8 @@ const LogIn = ({token, setToken, navigate}) => {
         console.log(data)
         console.log(data.data.token)
         setToken(data.data.token)
-        
-        // token ? return 
         return navigate("/")
     }
-
 
     return (
         <div>
@@ -30,8 +26,6 @@ const LogIn = ({token, setToken, navigate}) => {
                 <button
                 type="submit">Log In</button>
             </form>
-
-
         </div>
     )
 }

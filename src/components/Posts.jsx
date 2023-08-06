@@ -21,8 +21,6 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         }
     }, [])
 
-    console.log(allPosts)
-
     const deleteHandler = async (e) => {
         e.preventDefault()
         const deleteData = (await deletePost(token, postId))
@@ -32,7 +30,6 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
 
     }
-
 
     const postMatches = (post, text) => {
         if (post.title.includes(text)
@@ -45,6 +42,7 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         }
 
     }
+
     const filteredPosts = allPosts.filter((post) => postMatches(post, searchTerm))
     const postsToDisplay = searchTerm.length ? filteredPosts : allPosts
     console.log(postsToDisplay)
@@ -55,11 +53,11 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         <p>{post.description}</p>
         </div>)
 
-
     const tokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
                 <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
+
         {token && post.isAuthor
         ?
         <form onSubmit={deleteHandler}>
@@ -74,19 +72,17 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     }
     </div>)
 
-
-
     const noTokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
     </div>)
 
-    
     const tokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
         <h3>{post.author.username} | {post.location}</h3>
         <p>{post.description}</p>
+        
         {post.isAuthor
         ?
         <form onSubmit={deleteHandler}>
@@ -99,12 +95,7 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     :
     <button onClick={() => {navigate(`/posts/${post._id}`)}}>Message</button>
     }
-    </div>)
-
-    console.log(postId)
-    // console.log(searchTerm)
-    
-
+    </div>)    
 
     return (
         <div>

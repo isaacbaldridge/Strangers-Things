@@ -1,10 +1,8 @@
-// if user somehow gets to this page and they are not logged in, provide link to sign-up or login page. (do ternary to conditionally render between that and the actual form)
-
 import {useState} from "react"
 import { makePost } from "../apiRequests"
-// import { Navigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-const NewPostForm = ({token, navigate}) => {
+const NewPostForm = ({token}) => {
     const [ title, setTitle ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ price, setPrice ] = useState(0)
@@ -17,12 +15,6 @@ const NewPostForm = ({token, navigate}) => {
         console.log(postData)
     }
 
-
-    // console.log(title)
-    // console.log(description)
-    // console.log(price)
-    // console.log(location)
-    // console.log(deliver)
     return (
         <div>
             {token ? (
@@ -49,7 +41,7 @@ const NewPostForm = ({token, navigate}) => {
             )
         :
         <div>
-            To create a new post, you must either <a href="http://localhost:5173/login">log in</a> or <a href="http://localhost:5173/register">register</a>.
+            To create a new post, you must either <Link to="/login">log in</Link> or <Link to="/register">register a new account</Link>.
         </div>
         }
         </div>

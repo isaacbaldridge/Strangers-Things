@@ -1,19 +1,6 @@
-/*
-
-    THINGS TO DO:
-    1.) password restrictions/guidelines
-    2.) password and confirm password must match
-    3.) when displaying username and password back to user, make it so the password is hidden and will only be revealed on the click of a button
-    4.) display thank you for signing up message
-
-*/
-
-
 import Authenticate from "./Authenticate"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {registerUser} from "../apiRequests"
-
-
 
 const Register = ({token, setToken}) => {
     const [ username, setUsername ] = useState("")
@@ -30,10 +17,7 @@ const Register = ({token, setToken}) => {
             setToken(data.data.token)
             return token
         }
-        
-
     }
-
 
     const usernameValidation = (event) => {
         let username = event.target.value
@@ -44,6 +28,7 @@ const Register = ({token, setToken}) => {
         }
         setUsername(username)
     }
+
     const passwordValidation = (event) => {
         let password = event.target.value
         if (password.length < 5) {
@@ -67,12 +52,6 @@ const Register = ({token, setToken}) => {
         }
         setConfirmPassword(confirmPassword)
     }
-
-
-
-    // console.log(username)
-    // console.log(password)
-    // console.log(confirmPassword)
 
     return (
         <div>

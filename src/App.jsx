@@ -9,7 +9,6 @@ import Register from "./components/Register"
 import Posts from "./components/Posts"
 import SinglePost from './components/SinglePost'
 import NewPostForm from './components/NewPostForm'
-// import { myData } from './apiRequests'
 import './App.css'
 
 
