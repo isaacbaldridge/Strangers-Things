@@ -4,7 +4,8 @@ import {Link} from "react-router-dom"
 // ternary => if token, display Log out onClick, setToken(null), and navigate to Login page
 // if token=(null), do not display Logout in Navbar
 
-const NavBar = ({token, setToken}) => {
+const NavBar = ({token, setToken, user}) => {
+
 
     return (
         <div>
@@ -18,6 +19,7 @@ const NavBar = ({token, setToken}) => {
                     <Link onClick={() => {
                         setToken(null)
                     }} to="/login">Log out</Link>
+                    <p>Logged in as {`${user.username}`}</p>
                 </div>
             )}
 

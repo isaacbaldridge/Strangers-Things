@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import {Link} from "react-router-dom"
 import { myData } from "../apiRequests"
 
-const Profile = ({token, navigate}) => {
+const Profile = ({token, navigate, user, setUser}) => {
 
-    const [user, setUser] = useState({})
+    // const [user, setUser] = useState({})
 
     useEffect(() => {
         const getMyData = async () => {

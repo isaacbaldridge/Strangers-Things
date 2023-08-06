@@ -17,16 +17,18 @@ function App() {
   
   const [ token, setToken ] = useState(null)
   const [allPosts, setAllPosts] = useState([])
+  const [user, setUser] = useState({})
+
 
   const navigate = useNavigate()
 
   console.log(token)
   return (
     <div>
-      <NavBar token={token} setToken={setToken}/>
+      <NavBar token={token} setToken={setToken} user={user}/>
       <Routes>
         <Route path="/" element={<Home token={token}/>}/>
-        <Route path="/profile" element={<Profile token={token} navigate={navigate}/>}/>
+        <Route path="/profile" element={<Profile token={token} navigate={navigate} user={user} setUser={setUser}/>}/>
         <Route path="/login" element={<LogIn token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/register" element={<Register token={token} setToken={setToken} navigate={navigate}/>}/>
         <Route path="/posts" element={<Posts allPosts={allPosts} setAllPosts={setAllPosts} token={token} navigate={navigate}/>}/>
