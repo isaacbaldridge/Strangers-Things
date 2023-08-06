@@ -15,7 +15,7 @@ const Home = ({token, user, setUser, navigate}) => {
     return (
         <div>
             <h1>Welcome to Stranger's Things</h1>
-            {token && user.posts
+            {token && user
             ?
             <div>
                 <h2>Logged in as {`${user.username}`}</h2>

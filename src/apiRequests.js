@@ -38,7 +38,7 @@ export async function fetchTokenPosts (token) {
     }
 }
 
-export async function registerUser (username, password, confirmPassword)  {
+export async function registerUser (username, password)  {
     try {
       const response = await fetch(
         `${BASE_URL}/users/register`, {
@@ -49,8 +49,7 @@ export async function registerUser (username, password, confirmPassword)  {
         body: JSON.stringify({
           user: {
             username: username,
-            password: password,
-            confirmPassword: confirmPassword
+            password: password
           }
         })
       });

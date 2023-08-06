@@ -6,10 +6,10 @@ const Authenticate = ({username, password, token}) => {
     const navigate = useNavigate()
 
 
-    async function handleAuthenticate() {
+    async function handleAuthenticate(e) {
         const data = await myData(token)
         console.log(data)
-        navigate("/profile")
+        navigate("/")
     }
 
     return (

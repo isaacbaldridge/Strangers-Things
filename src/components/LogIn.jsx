@@ -1,6 +1,5 @@
-import Authenticate from "./Authenticate"
-import {loginUser, myData} from "../apiRequests"
-import { useState, useEffect } from "react"
+import {loginUser} from "../apiRequests"
+import { useState } from "react"
 
 
 const LogIn = ({token, setToken, navigate}) => {

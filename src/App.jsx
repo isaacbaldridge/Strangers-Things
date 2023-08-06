@@ -19,19 +19,6 @@ function App() {
   const [ token, setToken ] = useState(null)
   const [allPosts, setAllPosts] = useState([])
   const [user, setUser] = useState({})
-
-  // useEffect(() => {
-  //   const getMyData = async () => {
-  //       setUser(await myData(token))
-  //       console.log("inside async in useEffect")
-  //   }
-  //   getMyData()
-  //   if (!token) {
-  //       navigate("/login")
-  //   }
-  //   console.log("useEffect after async")
-  //   }, [])
-
   const navigate = useNavigate()
   
 
@@ -64,11 +51,9 @@ export default App
 
   THINGS LEFT TO DO:
   1.) DONE
-  2.) add conditions for making a password (too short, etc.)
-  3.) make sure password and confirm password must match when signing up
+  2.) DONE
+  3.) DONE
   4.) DONE
-  5.) when displaying username and password back to user, make it so the password is hidden and will only be revealed on the click of a button
-  6.) display thank you for signing up message
   7.) general code formatting add psudocode comments to make it easier to understand
   8.) CSS styling
 

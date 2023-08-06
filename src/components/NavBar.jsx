@@ -16,7 +16,7 @@ const NavBar = ({token, setToken, user}) => {
                     <Link onClick={() => {
                         setToken(null)
                     }} to="/login">Log out</Link>
-                    <p>Logged in as {`${user.username}`}</p>
+                    {/* <p>Logged in as {`${user.username}`}</p> */}
                 </div>
             )}
 
