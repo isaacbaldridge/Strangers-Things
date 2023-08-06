@@ -14,7 +14,7 @@ const Home = ({token, user, setUser, navigate}) => {
         }, [])
 
     return (
-        <div>
+        <div className="home">
             <h1>Welcome to Stranger's Things</h1>
             {token && user
             ?

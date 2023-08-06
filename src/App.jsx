@@ -25,7 +25,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='app'>
       <NavBar token={token} setToken={setToken} user={user}/>
       <Routes>
         <Route path="/" element={<Home token={token} navigate={navigate} user={user} setUser={setUser}/>}/>
@@ -53,7 +53,7 @@ export default App
   2.) DONE
   3.) DONE
   4.) DONE
-  7.) general code formatting add psudocode comments to make it easier to understand
+  7.) DONE
   8.) CSS styling
 
 */

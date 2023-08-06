@@ -15,16 +15,17 @@ const LogIn = ({token, setToken, navigate}) => {
     }
 
     return (
-        <div>
+        <div className="login">
             <form onSubmit={handleSubmit}>
-                <label>Username: 
-                    <input value={username} onChange={(e) => setUsername(e.target.value)} type="text"></input>
-                </label>
-                <label>Password: 
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password"></input>
-                </label>
-                <button
-                type="submit">Log In</button>
+                <div className="loginSubmit">
+                    <label>Username: 
+                        <input value={username} onChange={(e) => setUsername(e.target.value)} type="text"></input>
+                    </label>
+                    <label>Password: 
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password"></input>
+                    </label>
+                <button type="submit">Log In</button>
+                </div>
             </form>
         </div>
     )

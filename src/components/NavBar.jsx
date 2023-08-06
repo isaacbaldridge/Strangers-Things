@@ -3,13 +3,13 @@ import {Link} from "react-router-dom"
 const NavBar = ({token, setToken, user}) => {
 
     return (
-        <div>
+        <div className="navbar">
             <span>Stranger's Things</span>
             <Link to="/">Home</Link>
             <Link to="/posts">Posts</Link>
             
             {token && user &&
-            <div>
+            <div className="loginRegister">
                 <Link to="/profile">Profile</Link>
                 <Link onClick={() => {setToken(null)}} to="/login">Log out</Link>
                 <span>Logged in as {`${user.username}`}</span>
@@ -17,8 +17,9 @@ const NavBar = ({token, setToken, user}) => {
             }
 
             {!token && (
-                <div>
+                <div className="loginRegister">
                     <Link to="/login">Log in</Link>
+                    
                     <Link to="/register">Register</Link>
                 </div>
             )}
