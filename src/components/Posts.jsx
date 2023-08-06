@@ -4,6 +4,7 @@ import { deletePost, fetchPosts, fetchTokenPosts } from "../apiRequests"
 const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
     const [postId, setPostId] = useState("")
+    const [searchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
         if (token === null) {
@@ -31,6 +32,29 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
 
     }
+
+
+    const postMatches = (post, text) => {
+        if (post.title.includes(text)
+        ||
+        post.description.includes(text)
+        ||
+        post.author.username.includes(text)
+        ) {
+            return true
+        }
+
+    }
+    const filteredPosts = allPosts.filter((post) => postMatches(post, searchTerm))
+    const postsToDisplay = searchTerm.length ? filteredPosts : allPosts
+    console.log(postsToDisplay)
+
+    const postsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
+                <h2>{post.title} | {post.price}</h2>
+        <h3>{post.author.username}, {post.location}</h3>
+        <p>{post.description}</p>
+    </div>)
+
     const noTokenPostsMap = allPosts.map((post, index) => <div key={index}>
         <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
@@ -57,25 +81,34 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     </div>)
 
     console.log(postId)
+    // console.log(searchTerm)
     
 
 
     return (
         <div>
+            <input type="text" placeholder="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             {token
             ?
             <div>
                 <p>you are logged in!</p>
                 <button onClick={() => navigate("/createpost")}>New Post</button>
-                {tokenPostsMap}
-                {/* posts map here that display a delete button (only if isAuthor is true), display a message button (only if isAuthor is false) */}
-
+                {postsToDisplayMap
+                ?
+                postsToDisplayMap
+                :
+                tokenPostsMap
+                }
             </div>
             :
             <div>
                 <p>you are NOT logged in. get a job!</p>
-                {/* posts map here that do not display delete or message buttons. just the vanilla info */}
-                {noTokenPostsMap}
+                {postsToDisplayMap
+                ?
+                postsToDisplayMap
+                :
+                noTokenPostsMap
+                }
             </div>
             }
 
