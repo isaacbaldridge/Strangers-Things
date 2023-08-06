@@ -2,7 +2,7 @@ import {useState} from "react"
 import { makePost } from "../apiRequests"
 import { Link } from "react-router-dom"
 
-const NewPostForm = ({token}) => {
+const NewPostForm = ({token, navigate}) => {
     const [ title, setTitle ] = useState("")
     const [ description, setDescription ] = useState("")
     const [ price, setPrice ] = useState(0)
@@ -13,6 +13,13 @@ const NewPostForm = ({token}) => {
         e.preventDefault()
         const postData = await makePost(token, title, description, price, location, deliver)
         console.log(postData)
+        setTitle("")
+        setDescription("")
+        setPrice(0)
+        setLocation("")
+        setDeliver(false)
+        navigate("/posts")
+
     }
 
     return (

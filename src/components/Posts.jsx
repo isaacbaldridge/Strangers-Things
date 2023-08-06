@@ -53,8 +53,9 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         <p>{post.description}</p>
         </div>)
 
-    const tokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
-                <h2>{post.title} | {post.price}</h2>
+    const tokenPostsToDisplayMap = postsToDisplay.map((post, index) => 
+    <div key={index}>
+        <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
 
@@ -82,7 +83,7 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
         <h3>{post.author.username} | {post.location}</h3>
         <p>{post.description}</p>
-        
+
         {post.isAuthor
         ?
         <form onSubmit={deleteHandler}>
@@ -99,12 +100,11 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
     return (
         <div>
-            <input type="text" placeholder="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+            <input type="text" placeholder="search for a post..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             {token
             ?
             <div>
-                <p>you are logged in!</p>
-                <button onClick={() => navigate("/createpost")}>New Post</button>
+                <button onClick={() => navigate("/createpost")}>Create New Post</button>
                 {searchTerm.length
                 ?
                 tokenPostsToDisplayMap
@@ -114,7 +114,6 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
             </div>
             :
             <div>
-                <p>you are NOT logged in. get a job!</p>
                 {searchTerm.length
                 ?
                 noTokenPostsToDisplayMap

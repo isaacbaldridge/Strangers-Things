@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Profile = ({token, navigate, user, setUser}) => {
+const Profile = ({token, user}) => {
 
 if (token && user.posts) {
     const myPosts = user.posts
@@ -35,7 +35,6 @@ const myMessagesMap = myActivePosts.map((post, index) =>
 
 return (
 <div>
-    <p>you are logged in</p>
     <h1>Welcome, {user.username}</h1>
     <h2>My Posts:</h2>
     {myActivePostsMap}

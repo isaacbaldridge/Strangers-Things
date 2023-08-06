@@ -4,6 +4,7 @@ const NavBar = ({token, setToken, user}) => {
 
     return (
         <div>
+            <span>Stranger's Things</span>
             <Link to="/">Home</Link>
             <Link to="/posts">Posts</Link>
             
@@ -11,7 +12,7 @@ const NavBar = ({token, setToken, user}) => {
             <div>
                 <Link to="/profile">Profile</Link>
                 <Link onClick={() => {setToken(null)}} to="/login">Log out</Link>
-                <p>Logged in as {`${user.username}`}</p>
+                <span>Logged in as {`${user.username}`}</span>
             </div>
             }
 
