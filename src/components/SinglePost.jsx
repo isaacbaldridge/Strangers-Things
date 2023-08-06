@@ -19,7 +19,7 @@ const SinglePost = ({allPosts, token}) => {
         setMessage("")
     }
 
-    console.log(singlePost.isAuthor)
+    // console.log(singlePost.isAuthor)
     console.log(message)
     console.log(singlePost.messages)
 

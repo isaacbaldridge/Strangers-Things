@@ -20,6 +20,8 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
         }
     }, [])
 
+    console.log(allPosts)
+
     const deleteHandler = async (e) => {
         e.preventDefault()
         const deleteData = (await deletePost(token, postId))
