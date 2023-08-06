@@ -18,11 +18,12 @@ function App() {
   const [ token, setToken ] = useState(null)
   const [allPosts, setAllPosts] = useState([])
   const [user, setUser] = useState({})
-
-
   const navigate = useNavigate()
+  
 
   console.log(token)
+
+
   return (
     <div>
       <NavBar token={token} setToken={setToken} user={user}/>
@@ -42,3 +43,19 @@ function App() {
 }
 
 export default App
+
+
+
+/*
+
+  THINGS LEFT TO DO:
+  1.) build home page, make it simple
+  2.) add conditions for making a password (too short, etc.)
+  3.) make sure password and confirm password must match when signing up
+  4.) add funciton to singlepost back button
+  5.) when displaying username and password back to user, make it so the password is hidden and will only be revealed on the click of a button
+  6.) display thank you for signing up message
+  7.) general code formatting add psudocode comments to make it easier to understand
+  8.) CSS styling
+
+*/

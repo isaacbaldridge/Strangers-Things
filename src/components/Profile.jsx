@@ -4,7 +4,6 @@ import { myData } from "../apiRequests"
 
 const Profile = ({token, navigate, user, setUser}) => {
 
-    // const [user, setUser] = useState({})
 
     useEffect(() => {
         const getMyData = async () => {

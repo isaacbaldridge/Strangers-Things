@@ -4,7 +4,7 @@
     1.) password restrictions/guidelines
     2.) password and confirm password must match
     3.) when displaying username and password back to user, make it so the password is hidden and will only be revealed on the click of a button
-    4.) display thank you for signing up mesage
+    4.) display thank you for signing up message
 
 */
 
