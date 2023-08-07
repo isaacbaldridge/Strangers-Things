@@ -55,7 +55,7 @@ const Register = ({token, setToken}) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="register" onSubmit={handleSubmit}>
                 <label>Username: 
                     <input value={username} onChange={usernameValidation} type="text"></input>
                 </label>
@@ -65,9 +65,9 @@ const Register = ({token, setToken}) => {
                 <label>Confirm password: 
                     <input value={confirmPassword} onChange={confirmPasswordValidation} type="password"></input>
                 </label>
-                { errorMsg && <h3>{errorMsg}</h3>}
                 <button type="submit">Register</button>
             </form>
+                { errorMsg && <h3>{errorMsg}</h3>}
 
             {token && (
                 <div>
