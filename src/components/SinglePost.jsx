@@ -27,7 +27,7 @@ const SinglePost = ({allPosts, token, navigate}) => {
 
                 {!singlePost.isAuthor
                 ?
-                <form onSubmit={handleSubmit}>
+                <form className="msgUser" onSubmit={handleSubmit}>
                     <textarea cols="40" rows="5"
                     value={message} 
                     onChange={(e) => setMessage(e.target.value)}></textarea>
@@ -37,9 +37,11 @@ const SinglePost = ({allPosts, token, navigate}) => {
                 :
                 <div>
                     <h2>My messages:</h2>
+                    <hr/>
                     {singlePost.messages.map((msg, index) => <div key={index}>
                         <h3>From: {msg.fromUser.username}</h3>
                         <p>{msg.content}</p>
+                        <hr/>
                     </div>)}
                 </div>
                 }

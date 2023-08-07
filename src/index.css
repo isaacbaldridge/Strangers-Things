@@ -64,6 +64,19 @@
   margin-bottom: 20px;
 }
 
+.msgUser {
+  /* border:solid white; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.msgUser > button {
+  width:15%;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 
 
 
