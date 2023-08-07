@@ -47,14 +47,14 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     const postsToDisplay = searchTerm.length ? filteredPosts : allPosts
     console.log(postsToDisplay)
 
-    const noTokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div key={index}>
+    const noTokenPostsToDisplayMap = postsToDisplay.map((post, index) => <div className="posts" key={index}>
         <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
         </div>)
 
     const tokenPostsToDisplayMap = postsToDisplay.map((post, index) => 
-    <div key={index}>
+    <div className="posts" key={index}>
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
@@ -73,13 +73,13 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
     }
     </div>)
 
-    const noTokenPostsMap = allPosts.map((post, index) => <div key={index}>
+    const noTokenPostsMap = allPosts.map((post, index) => <div className="posts" key={index}>
         <h2>{post.title} | {post.price}</h2>
         <h3>{post.author.username}, {post.location}</h3>
         <p>{post.description}</p>
     </div>)
 
-    const tokenPostsMap = allPosts.map((post, index) => <div key={index}>
+    const tokenPostsMap = allPosts.map((post, index) => <div className="posts" key={index}>
         <h2 onClick={() => {navigate(`/posts/${post._id}`)}}>{post.title} | {post.price}</h2>
         <h3>{post.author.username} | {post.location}</h3>
         <p>{post.description}</p>
@@ -100,11 +100,11 @@ const Posts = ({token, navigate, allPosts, setAllPosts}) => {
 
     return (
         <div>
-            <input type="text" placeholder="search for a post..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+            <input className="searchTerm" type="text" placeholder="search for a post..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
             {token
             ?
             <div>
-                <button onClick={() => navigate("/createpost")}>Create New Post</button>
+                <button className="createPostButton" onClick={() => navigate("/createpost")}>Create New Post</button>
                 {searchTerm.length
                 ?
                 tokenPostsToDisplayMap

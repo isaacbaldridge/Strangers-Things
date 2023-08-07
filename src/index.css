@@ -46,6 +46,23 @@
   padding-right: 20px;
 }
 
+.posts {
+  border: solid white;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.searchTerm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.createPostButton {
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
 
 
 
