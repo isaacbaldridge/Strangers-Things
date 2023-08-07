@@ -26,17 +26,17 @@ const NewPostForm = ({token, navigate}) => {
         <div>
             {token ? (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>Title
+            <form className="newPostForm" onSubmit={handleSubmit}>
+                <label>Title: 
                     <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}></input>
                 </label>
-                <label>Description
+                <label>Description: 
                     <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}></input>
                 </label>
-                <label>Price
+                <label>Price: 
                     <input type="number" value={price} onChange={(e) => setPrice(e.target.value)}></input>
                 </label>
-                <label>Location
+                <label>Location: 
                     <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}></input>
                 </label>
                 <label>Willing to deliver?
